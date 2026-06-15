@@ -47,7 +47,7 @@ Every method returns a promise that fulfills when a call was successful.
 ### logEvent(_name_, _params_)
 Logs an app event.
 ```js
-cordova.plugins.firebase.analytics.logEvent("my_event", {param1: "value1"});
+window.cordova.plugins.firebase.analytics.logEvent("my_event", {param1: "value1"});
 ```
 
 Be aware of [automatically collected events](https://support.google.com/firebase/answer/6317485).
@@ -55,14 +55,14 @@ Be aware of [automatically collected events](https://support.google.com/firebase
 ### setUserId(_id_)
 Sets the user ID property.
 ```js
-cordova.plugins.firebase.analytics.setUserId("12345");
+window.cordova.plugins.firebase.analytics.setUserId("12345");
 ```
 This feature must be used in accordance with [Google's Privacy Policy](https://www.google.com/policies/privacy).
 
 ### setUserProperty(_name_, _value_)
 Sets a user property to a given value.
 ```js
-cordova.plugins.firebase.analytics.setUserProperty("name1", "value1");
+window.cordova.plugins.firebase.analytics.setUserProperty("name1", "value1");
 ```
 
 Be aware of [automatically collected user properties](https://support.google.com/firebase/answer/6317486?hl=en&ref_topic=6317484).
@@ -70,25 +70,25 @@ Be aware of [automatically collected user properties](https://support.google.com
 ### setCurrentScreen(_name_)
 Sets the current screen name, which specifies the current visual context in your app. This helps identify the areas in your app where users spend their time and how they interact with your app.
 ```js
-cordova.plugins.firebase.analytics.setCurrentScreen("User profile");
+window.cordova.plugins.firebase.analytics.setCurrentScreen("User profile");
 ```
 
 ### setEnabled(_enabled_)
 Sets whether analytics collection is enabled for this app on this device.
 ```js
-cordova.plugins.firebase.analytics.setEnabled(false);
+window.cordova.plugins.firebase.analytics.setEnabled(false);
 ```
 
 ### resetAnalyticsData()
 Clears all analytics data for this instance from the device and resets the app instance ID.
 ```js
-cordova.plugins.firebase.analytics.resetAnalyticsData();
+window.cordova.plugins.firebase.analytics.resetAnalyticsData();
 ```
 
 ### setDefaultEventParameters(_params_)
 Adds parameters that will be set on every event logged from the SDK, including automatic ones.
 ```js
-cordova.plugins.firebase.analytics.setDefaultEventParameters({foo: "bar"});
+window.cordova.plugins.firebase.analytics.setDefaultEventParameters({foo: "bar"});
 ```
 
 [npm-url]: https://www.npmjs.com/package/cordova-plugin-firebase-analytics
