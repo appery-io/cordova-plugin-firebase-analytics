@@ -1,27 +1,27 @@
-if (!cordovaConfig.IS_GRADLE_PLUGIN_GOOGLE_SERVICES_ENABLED) {
-    buildscript {
-        repositories {
-            google()
-            mavenCentral()
-        }
-
-        dependencies {
-            classpath 'com.android.tools.build:gradle:3.6.4'
-            classpath 'com.google.gms:google-services:4.3.14'
-        }
-    }
-}
+//if (!cordovaConfig.IS_GRADLE_PLUGIN_GOOGLE_SERVICES_ENABLED) {
+//    buildscript {
+//        repositories {
+//            google()
+//            mavenCentral()
+//        }
+//
+//        dependencies {
+//            classpath 'com.android.tools.build:gradle:3.6.4'
+//            classpath 'com.google.gms:google-services:4.3.14'
+//        }
+//    }
+//}
 
 dependencies {
     implementation platform('com.google.firebase:firebase-bom:33.2.0')
     implementation("com.google.firebase:firebase-analytics")
 }
 
-if (!cordovaConfig.IS_GRADLE_PLUGIN_GOOGLE_SERVICES_ENABLED) {
-    cdvPluginPostBuildExtras.add {
-        if (plugins.hasPlugin('com.android.application') && project.extensions.findByName('googleServices') == null) {
-            apply plugin: 'com.google.gms.googleservices.GoogleServicesPlugin'
-            googleServices.disableVersionCheck = true
-        }
-    }
-}
+//if (!cordovaConfig.IS_GRADLE_PLUGIN_GOOGLE_SERVICES_ENABLED) {
+//    cdvPluginPostBuildExtras.add {
+//        if (plugins.hasPlugin('com.android.application') && project.extensions.findByName('googleServices') == null) {
+//            apply plugin: 'com.google.gms.googleservices.GoogleServicesPlugin'
+//            googleServices.disableVersionCheck = true
+//        }
+//    }
+//}
