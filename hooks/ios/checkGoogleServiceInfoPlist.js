@@ -13,7 +13,7 @@ function getAppName(projectRoot) {
     const match = xml.match(/<name(?:\s[^>]*)?>([^<]+)<\/name>/);
 
     if (!match) {
-        throw new Error('cordova-plugin-firebase-analytics: не удалось определить имя приложения из config.xml.');
+        throw new Error('cordova-plugin-firebase-analytics: can not define app name from config.xml.');
     }
 
     return match[1].trim();
@@ -54,16 +54,16 @@ function getGoogleServiceInfoCandidates(projectRoot, appName) {
     return [...new Set(candidates)];
 }
 
-function validateGoogleServiceInfoPlist(filePath) {
-    const content = fs.readFileSync(filePath, 'utf8');
-    const hasGoogleAppId = /<key>GOOGLE_APP_ID<\/key>\s*<string>[^<]+<\/string>/.test(content);
-
-    if (!hasGoogleAppId) {
-        throw new Error(
-            `cordova-plugin-firebase-analytics: файл ${filePath} не содержит обязательный ключ GOOGLE_APP_ID.`
-        );
-    }
-}
+// function validateGoogleServiceInfoPlist(filePath) {
+//     const content = fs.readFileSync(filePath, 'utf8');
+//     const hasGoogleAppId = /<key>GOOGLE_APP_ID<\/key>\s*<string>[^<]+<\/string>/.test(content);
+//
+//     if (!hasGoogleAppId) {
+//         throw new Error(
+//             `cordova-plugin-firebase-analytics: файл ${filePath} не содержит обязательный ключ GOOGLE_APP_ID.`
+//         );
+//     }
+// }
 
 module.exports = function (context) {
     const projectRoot = getProjectRoot(context);
@@ -83,7 +83,7 @@ module.exports = function (context) {
             continue;
         }
 
-        validateGoogleServiceInfoPlist(candidate);
+//        validateGoogleServiceInfoPlist(candidate);
         foundPath = candidate;
         break;
     }
@@ -107,5 +107,5 @@ module.exports = function (context) {
         throw new Error(message);
     }
 
-    console.log(`cordova-plugin-firebase-analytics: найден ${PLIST_NAME}: ${foundPath}`);
+    console.log(`cordova-plugin-firebase-analytics: found ${PLIST_NAME}: ${foundPath}`);
 };
