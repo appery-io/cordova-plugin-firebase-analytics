@@ -22,7 +22,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 
     <preference name="USER_TRACKING_DESCRIPTION_IOS" default="$(PRODUCT_NAME) needs your attention." />
 
-    <platform name="ios" package="swift">
+    <platform name="ios">
         <preference name="IOS_FIREBASE_ANALYTICS_VERSION" default="11.9.0"/>
 
         <hook type="after_prepare" src="hooks/ios/iOSCopyPreferences.js" />
@@ -35,7 +35,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
             </feature>
         </config-file>
 
-        <dependency id="cordova-plugin-add-swift-support" url="https://github.com/OutSystems/cordova-plugin-add-swift-support.git#2.0.3-OS2"/>
+        <dependency id="cordova-plugin-add-swift-support" url="https://github.com/appery-io/cordova-plugin-add-swift-support"/>
 
         <!--
             use a bit hacky method to set boolean value as a string:
@@ -71,7 +71,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
                 <source url="https://cdn.cocoapods.org/"/>
             </config>
             <pods use-frameworks="true">
-                <pod name="FirebaseAnalytics" spec="$IOS_FIREBASE_ANALYTICS_VERSION" nospm="true" />
+                <pod name="FirebaseAnalytics" spec="$IOS_FIREBASE_ANALYTICS_VERSION" />
             </pods>
         </podspec>
 
